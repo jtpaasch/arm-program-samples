@@ -1,0 +1,8 @@
+00000882: program
+00000879: sub dbl(dbl_result)
+00000890: dbl_result :: out u32 = R0
+
+00000525:
+0000052d: #12582844 := R0
+00000531: R0 := #12582844 << 1
+00000537: call LR with noreturn

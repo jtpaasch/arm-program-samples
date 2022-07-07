@@ -1,0 +1,17 @@
+0000097d: program
+00000977: sub foo(foo_result)
+0000098c: foo_result :: out u32 = R0
+
+00000560:
+0000056c: mem := mem with [SP - 4, el]:u32 <- R11
+00000570: SP := SP - 4
+00000578: R11 := SP
+00000580: SP := SP - 0xC
+00000586: R3 := 5
+00000592: mem := mem with [R11 - 8, el]:u32 <- R3
+0000059c: R3 := mem[R11 - 8, el]:u32
+000005a4: R0 := R3
+000005ac: SP := R11
+000005b8: R11 := mem[SP, el]:u32
+000005bc: SP := SP + 4
+000005c2: call LR with noreturn

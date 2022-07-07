@@ -1,0 +1,20 @@
+000009c4: program
+0000099c: sub dbl(dbl_result)
+000009d2: dbl_result :: out u32 = R0
+
+00000564:
+00000570: mem := mem with [SP - 4, el]:u32 <- R11
+00000574: SP := SP - 4
+0000057c: R11 := SP
+00000584: SP := SP - 0x14
+00000590: mem := mem with [R11 - 0x10, el]:u32 <- R0
+0000059a: R3 := mem[R11 - 0x10, el]:u32
+000005a4: #12582835 := R3
+000005a8: R3 := #12582835 << 1
+000005b4: mem := mem with [R11 - 8, el]:u32 <- R3
+000005be: R3 := mem[R11 - 8, el]:u32
+000005c6: R0 := R3
+000005ce: SP := R11
+000005da: R11 := mem[SP, el]:u32
+000005de: SP := SP + 4
+000005e4: call LR with noreturn

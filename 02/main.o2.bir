@@ -1,0 +1,7 @@
+0000087e: program
+00000878: sub foo(foo_result)
+0000088d: foo_result :: out u32 = R0
+
+00000531:
+00000535: R0 := 5
+0000053b: call LR with noreturn

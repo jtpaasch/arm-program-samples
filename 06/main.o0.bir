@@ -1,0 +1,37 @@
+000009e5: program
+000009da: sub check(check_result)
+000009f3: check_result :: out u32 = R0
+
+0000055e:
+0000056a: mem := mem with [SP - 4, el]:u32 <- R11
+0000056e: SP := SP - 4
+00000576: R11 := SP
+0000057e: SP := SP - 0x14
+0000058a: mem := mem with [R11 - 0x10, el]:u32 <- R0
+00000594: R3 := mem[R11 - 0x10, el]:u32
+000005a8: #12582834 := R3
+000005ac: #12582836 := R3
+000005b0: CF := 0 <= #12582834
+000005b6: VF := high:1[#12582834 & (#12582834 ^ #12582836)]
+000005ba: NF := high:1[#12582836]
+000005be: ZF := #12582836 = 0
+000005c9: when ZF | NF <> VF goto %000005c4
+000009db: goto %00000877
+
+000005c4:
+000005d0: R3 := 0
+000005dc: mem := mem with [R11 - 8, el]:u32 <- R3
+000009dc: goto %000005de
+
+00000877:
+0000087b: R3 := 1
+00000887: mem := mem with [R11 - 8, el]:u32 <- R3
+0000088b: goto %000005de
+
+000005de:
+000005e6: R3 := mem[R11 - 8, el]:u32
+000005ee: R0 := R3
+000005f6: SP := R11
+00000602: R11 := mem[SP, el]:u32
+00000606: SP := SP + 4
+0000060c: call LR with noreturn
